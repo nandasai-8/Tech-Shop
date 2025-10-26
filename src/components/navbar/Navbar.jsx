@@ -135,7 +135,7 @@ const Navbar = () => {
                             {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
                         </Link>
                     </li>
-                    <li data-bs-toggle="modal" data-bs-target="#authModal" data-bs-toggle="tooltip" data-bs-placement="top"
+                    <li data-bs-toggle="modal tooltip" data-bs-target="#authModal" data-bs-placement="top"
                         data-bs-custom-class="custom-tooltip"
                         data-bs-title="signin / signup">
                         <FaRegCircleUser />
