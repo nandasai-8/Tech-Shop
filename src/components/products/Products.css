@@ -148,6 +148,11 @@
     background-color: #28a745;
 }
 
+.Toastify__toast {
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
 /* See All Card */
 .see-all-card {
     border: 2px dashed #ccc;

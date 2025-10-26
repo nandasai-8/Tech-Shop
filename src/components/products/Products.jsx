@@ -4,6 +4,7 @@ import "./Products.css";
 import { FaArrowRight, FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../context/StoreContext";
+import { ToastContainer } from "react-toastify";
 
 const Products = () => {
     const categories = ["All", "Headphones", "Earbuds", "Earphones", "Neckbands"];
@@ -68,17 +69,19 @@ const Products = () => {
                         <p className="product-info">{product.info}</p>
                         <hr />
 
-                        {product.originalPrice && product.originalPrice > product.finalPrice ? (
-                            <div className="price">
-                                <span className="final-price">₹{product.finalPrice}</span>
-                                <span className="original-price">₹{product.originalPrice}</span>
-                            </div>
-                        ) : (
-                            <span className="price">₹{product.finalPrice}</span>
-                        )}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginLeft: '50px' }}>
+                            {product.finalPrice && <h2>₹{product.finalPrice}</h2>}
+                            {product.originalPrice && (
+                                <p style={{ textDecoration: 'line-through', color: 'gray' }}>
+                                    ₹{product.originalPrice}
+                                </p>
+                            )}
+
+
+                        </div>
 
                         <button
-                            className={`btn-add ${addedProduct === product.id ? "added" : ""}`}
+                            className={`btn-add  w-100 ${addedProduct === product.id ? "added" : ""}`}
                             onClick={() => handleAddToCart(product.id)}
                         >
                             {addedProduct === product.id ? "Added!" : "Add To Cart"}
@@ -94,6 +97,7 @@ const Products = () => {
                     </div>
                 </Link>
             </div>
+            <ToastContainer />
         </div>
     );
 };

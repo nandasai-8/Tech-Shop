@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import productsData from '../../ProductsData';
 import './ProductDetails.css';
 import { StoreContext } from '../context/StoreContext';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaStar, FaRegStar } from 'react-icons/fa';
 import Advantages from '../Advantages/Advantages';
 import Footer from '../footer/Footer';
 import Specification from '../productfeatures/Specification';
@@ -17,6 +17,12 @@ const ProductDetails = () => {
     const [mainImage, setMainImage] = useState('');
     const [relatedProducts, setRelatedProducts] = useState([]);
     const [addedProduct, setAddedProduct] = useState(null);
+
+    const handleAddToCart = (id) => {
+        addToCart(id);
+        setAddedProduct(id);
+        setTimeout(() => setAddedProduct(null), 1500);
+    };
 
     useEffect(() => {
         const foundProduct = productsData.find((item) => item.id === parseInt(id));
@@ -70,17 +76,26 @@ const ProductDetails = () => {
                 <div className="product-info">
                     <h2>{product.title}</h2>
                     <h5>{product.tagline}</h5>
-                    <p><strong>Category:</strong> {product.category}</p>
-                    {product.originalPrice && <p><strong>Original Price:</strong> ₹{product.originalPrice}</p>}
+                    <h6>⭐⭐⭐⭐⭐|{product.ratings} ratings</h6>
+                    <hr style={{ width: "20rem" }} />
+
+                    <p style={{ color: "orangered", marginTop: "-20px" }}> you save: ₹{product.originalPrice - product.finalPrice}</p>
+
+                    <h6 style={{ marginTop: "-30px" }}>[inclusive all taxes]</h6>
+                    <hr style={{ width: "20rem" }} />
+
+                    <div className="offers">
+                        <div className="offer">No cost EMI for credit card</div>
+                        <div className="discount">pay later & Avail  Cashback</div>
+                    </div>
                     <div className="buttons">
-                        {/* <button className="btn-primary" onClick={() => addToCart(product.id)}>Add to Cart</button> */}
                         <button
                             className={`btn-add w-25 ${addedProduct === product.id ? "added" : ""}`}
-                            onClick={() => { addToCart(product.id); setAddedProduct(product.id); }}
+                            onClick={() => handleAddToCart(product.id)}
                         >
                             {addedProduct === product.id ? "Added!" : "Add To Cart"}
                         </button>
-                        <button className="btn-secondary" onClick={() => navigate(-1)}>Back</button>
+                        <button className="btn-add w-25" onClick={() => navigate("/cart")}>Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -96,7 +111,7 @@ const ProductDetails = () => {
             {
                 relatedProducts.length > 0 && (
                     <div className="related-products">
-                        <h3>Related Products in this Category</h3>
+                        <h3 style={{ fontSize: '30px', color: "orangered" }}>Related Products in this Category</h3>
                         <div className="related-grid">
                             {relatedProducts.map((p) => (
                                 <div
@@ -106,9 +121,35 @@ const ProductDetails = () => {
                                     style={{ cursor: 'pointer' }}
                                 >
                                     <img src={p.images[0]} alt={p.title} width={200} />
-                                    <p>{p.title}</p>
-                                    {p.originalPrice && p.originalPrice !== p.finalPrice && (<p style={{ textDecoration: 'line-through', color: 'gray' }}>₹{p.originalPrice}</p>)}
-                                    {p.finalPrice && <p>₹{p.finalPrice}</p>}
+                                    <div className="rating">
+                                        {[...Array(5)].map((_, idx) =>
+                                            idx < (p.rating || 4) ? (
+                                                <FaStar key={idx} color="#f5b50a" />
+                                            ) : (
+                                                <FaRegStar key={idx} color="#ccc" />
+                                            )
+                                        )}
+                                    </div>
+                                    <h4>{p.title}</h4>
+                                    <p className="product-info">{p.info}</p>
+                                    <hr />
+
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginLeft: '50px' }}>
+                                        {p.finalPrice && <h2>₹{p.finalPrice}</h2>}
+                                        {p.originalPrice && (
+                                            <p style={{ textDecoration: 'line-through', color: 'gray' }}>
+                                                ₹{p.originalPrice}
+                                            </p>
+                                        )}
+
+
+                                    </div>
+
+                                    <button
+                                        className={`btn-add  w-100 ${addedProduct === p.id ? "added" : ""}`}
+                                        onClick={(e) => { e.stopPropagation(); addToCart(p.id); setAddedProduct(p.id); }}
+                                    > Add To Cart
+                                    </button>
                                 </div>
                             ))}
 

@@ -1,129 +1,192 @@
-/* =========================
-   BASE LIGHT THEME
-========================= */
-
+/* ===================== General Section ===================== */
 .section {
-    padding: 2rem 0;
-    background-color: #ffffff;
-    color: #000000;
-    transition: all 0.3s ease;
+    padding: 3rem 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode .section {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+body.dark-mode .section {
+    background-color: #121212;
+    color: #eaeaea;
 }
 
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    max-width: 1000px;
+    margin: auto;
 }
 
-/* ===== Tabs ===== */
+/* ===================== Tabs ===================== */
 .prod_summary_tabs {
-    text-align: center;
     margin-bottom: 1.5rem;
+    text-align: center;
+
 }
 
 .tabs {
-    list-style: none;
-    padding: 0;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    border-bottom: 2px solid #ddd;
+    gap: 1rem;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .tabs_item {
     cursor: pointer;
-    padding: 0.6rem 1rem;
+    font-size: 1rem;
     font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    background-color: #eee;
     color: #333;
-    position: relative;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .tabs_item:hover {
-    color: #007bff;
+    background-color: #007bff;
+    color: white;
 }
 
 .tabs_item.active {
-    color: #007bff;
-    border-bottom: 3px solid #007bff;
+    background-color: #007bff;
+    color: white;
 }
 
-/* ===== Details Section ===== */
-.prod_summary_details {
-    background: #f9f9f9;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+body.dark-mode .tabs_item {
+    background-color: #222;
+    color: #eaeaea;
+}
+
+body.dark-mode .tabs_item.active,
+body.dark-mode .tabs_item:hover {
+    background-color: #1e90ff;
+    color: #fff;
+}
+
+/* ===================== Product Specs ===================== */
+.prod_specs {
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
 }
 
 .prod_specs ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .prod_specs li {
     display: flex;
     justify-content: space-between;
-    padding: 0.6rem 0;
+    padding: 0.8rem 1rem;
     border-bottom: 1px solid #ddd;
 }
 
-.prod_specs span:first-child {
+.prod_specs li span:first-child {
     font-weight: 600;
-    color: #333;
 }
 
+body.dark-mode .prod_specs li {
+    border-bottom: 1px solid #333;
+}
+
+/* ===================== Overview ===================== */
 .prod_overview h3 {
-    font-size: 1.4rem;
-    color: #000;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
-}
-
-.prod_overview h3 span {
-    color: #007bff;
 }
 
 .prod_overview ul {
+    margin-left: 1.5rem;
     margin-bottom: 1rem;
-    padding-left: 1.2rem;
-}
-
-.prod_overview li {
-    list-style-type: disc;
-    color: #333;
-    margin-bottom: 0.4rem;
 }
 
 .prod_overview p {
     line-height: 1.6;
-    color: #555;
 }
 
-/* ===== Reviews Section ===== */
+.prod_overview {
+    border: 1px solid #007bff;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+}
+
+/* ===================== Reviews ===================== */
+.prod_reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid #007bff;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+}
+
 .prod_reviews h3 {
-    font-size: 1.4rem;
-    color: #000;
-    margin-bottom: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
 }
 
+/* Grid layout for cards */
+.prod_reviews ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+}
+
+/* Review Card */
 .review_card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
     background-color: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    transition: 0.3s ease;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .review_card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Avatar */
+.review_avatar {
+    width: 48px;
+    height: 48px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+/* Review Content */
+.review_content {
+    flex: 1;
 }
 
 .review_header {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
 }
 
 .review_text {
@@ -131,79 +194,29 @@
     line-height: 1.5;
 }
 
-/* =========================
-   DARK MODE
-========================= */
-
-.dark-mode .section {
-    background-color: #121212;
-    color: #f5f5f5;
-}
-
-.dark-mode .tabs {
-    border-bottom: 2px solid #333;
-}
-
-.dark-mode .tabs_item {
-    color: #ccc;
-}
-
-.dark-mode .tabs_item:hover {
-    color: #4a90e2;
-}
-
-.dark-mode .tabs_item.active {
-    color: #4a90e2;
-    border-bottom: 3px solid #4a90e2;
-}
-
-.dark-mode .prod_summary_details {
-    background: #1e1e1e;
-    border: 1px solid #333;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-}
-
-.dark-mode .prod_specs li {
-    border-bottom: 1px solid #333;
-}
-
-.dark-mode .prod_specs span:first-child {
-    color: #ccc;
-}
-
-.dark-mode .prod_overview h3 {
-    color: #fff;
-}
-
-.dark-mode .prod_overview h3 span {
-    color: #4a90e2;
-}
-
-.dark-mode .prod_overview li {
-    color: #ccc;
-}
-
-.dark-mode .prod_overview p {
-    color: #bbb;
-}
-
-.dark-mode .prod_reviews h3 {
-    color: #fff;
-}
-
-.dark-mode .review_card {
+/* Dark Mode */
+body.dark-mode .review_card {
     background-color: #1e1e1e;
-    border: 1px solid #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.dark-mode .review_card:hover {
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .review_header {
-    color: #fff;
-}
-
-.dark-mode .review_text {
+body.dark-mode .review_text {
     color: #ccc;
+}
+
+body.dark-mode .review_avatar {
+    background-color: #1e90ff;
+}
+
+/* Responsive - stack to 2 per row then 1 */
+@media (max-width: 992px) {
+    .prod_reviews ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .prod_reviews ul {
+        grid-template-columns: 1fr;
+    }
 }

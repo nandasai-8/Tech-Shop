@@ -79,6 +79,39 @@
     margin-top: 1rem;
 }
 
+.offers {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.offer {
+    /* background-color: #f0f8ff; */
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #007bff;
+    border: 1px solid orangered;
+    width: 10rem;
+}
+
+.discount {
+    /* background-color: #f0f8ff; */
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #007bff;
+    border: 1px solid orangered;
+    width: 10rem;
+
+}
+
+.offer:hover,
+.discount:hover {
+    background-color: #e6f0ff;
+}
+
 .btn-primary,
 .btn-secondary {
     padding: 0.6rem 1.2rem;
@@ -109,7 +142,8 @@
 
 /* Related products section */
 .related-products {
-    /* margin-top: 4rem; */
+    margin-top: 6rem;
+    margin-bottom: 10rem;
     padding: 0 2rem;
 }
 
@@ -123,6 +157,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
+    margin-top: 5rem;
 }
 
 .related-card {
@@ -132,7 +167,7 @@
     text-align: center;
     cursor: pointer;
     transition: 0.3s ease;
-    height: 300px;
+    height: 450px;
     background-color: #fff;
     color: #000;
 }

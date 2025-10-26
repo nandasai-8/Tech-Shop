@@ -1,15 +1,30 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import Navbar from "../navbar/Navbar";
 import productsData from "../../ProductsData";
 import { Link } from "react-router-dom";
 import "./TotalProducts.css";
 import Footer from "../footer/Footer";
+import { FaStar, FaRegStar } from "react-icons/fa";
+import { StoreContext } from '../context/StoreContext';
 
 const TotalProducts = () => {
     const categories = ["All", "Headphones", "Earbuds", "Earphones", "Neckbands"];
     const [selectedCategories, setSelectedCategories] = useState(["All"]);
     const [sortOptions, setSortOptions] = useState([]); // ["low-to-high", "high-to-low"]
     const [priceRange, setPriceRange] = useState(20000); // default max range
+    const { addToCart } = useContext(StoreContext);
+
+    // local state to track added product (simple UI feedback)
+    const [addedProduct, setAddedProduct] = useState(null);
+
+    // simple add-to-cart handler (replace with real cart logic as needed)
+    const handleAddToCart = (id) => {
+        addToCart(id);
+        setAddedProduct(id);
+        setTimeout(() => setAddedProduct(null), 1500);
+    };
+    // TODO: integrate with cart context / API / localStorage
+    // Example: addToCart(product)
 
     // ✅ Handle category selection (including "All")
     const handleCategoryChange = (category) => {
@@ -120,24 +135,44 @@ const TotalProducts = () => {
                         {filteredProducts.length > 0 ? (
                             filteredProducts.map((product) => (
                                 <div className="product-card" key={product.id}>
-                                    <Link to={`/products/${product.id}`}>
+                                    <Link to={`/products/${product.id}`} className="product-link">
                                         <div className="product-image">
                                             <img
-                                                src={product.heroImage || product.images[0]}
+                                                src={product.heroImage || (product.images && product.images[0])}
                                                 alt={product.title}
                                             />
                                         </div>
-                                        <div className="product-details">
-                                            <h4>{product.title}</h4>
-                                            <p className="info">{product.info}</p>
-                                            <div className="price-container">
-                                                {product.originalPrice && product.originalPrice !== product.finalPrice && (
-                                                    <span className="original-price">₹{product.originalPrice}</span>
-                                                )}
-                                                <span className="price">₹{product.finalPrice}</span>
-                                            </div>
+                                        <div className="rating">
+                                            {[...Array(5)].map((_, idx) =>
+                                                idx < product.ratings ? (
+                                                    <FaStar key={idx} color="#f5b50a" />
+                                                ) : (
+                                                    <FaRegStar key={idx} color="#ccc" />
+                                                )
+                                            )}
                                         </div>
+                                        <h4>{product.title}</h4>
+                                        <p className="product-info" style={{ marginLeft: "-30px" }}>{product.info}</p>
                                     </Link>
+
+                                    <hr />
+
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginLeft: '30px' }}>
+                                        {product.finalPrice && <h2>₹{product.finalPrice}</h2>}
+                                        {product.originalPrice && (
+                                            <p style={{ textDecoration: 'line-through', color: 'gray' }}>
+                                                ₹{product.originalPrice}
+                                            </p>
+                                        )}
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        className={`btn-add  w-100 ${addedProduct === product.id ? "added" : ""}`}
+                                        onClick={() => handleAddToCart(product.id)}
+                                    >
+                                        {addedProduct === product.id ? "Added!" : "Add To Cart"}
+                                    </button>
                                 </div>
 
                             ))

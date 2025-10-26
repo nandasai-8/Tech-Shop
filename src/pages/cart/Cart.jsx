@@ -117,7 +117,7 @@ const Cart = () => {
 
                             <button
                                 className="checkout-btn"
-                                onClick={() => navigate('/order')}
+                                onClick={() => navigate('/PlaceOrder')}
                                 disabled={totalItems === 0}
                             >
                                 {totalItems === 0 ? 'Cart is Empty' : 'Proceed to Checkout'}

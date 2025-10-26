@@ -70,7 +70,7 @@ const Specification = ({ brand, title, info, category, type, connectivity }) => 
                     {active === 'overview' && (
                         <div className="prod_overview">
                             <h3>
-                                The <span>{title}</span> {info} provides fabulous sound quality
+                                The <span style={{ color: "orangered" }}>{title}</span> {info} provides fabulous sound quality
                             </h3>
                             <ul>
                                 <li>Sound Tuned to Perfection</li>
@@ -78,7 +78,7 @@ const Specification = ({ brand, title, info, category, type, connectivity }) => 
                                 <li>Long Hours Playback Time</li>
                             </ul>
                             <p>
-                                Buy the <b>{title} {info}</b> which offers a fabulous music experience with awesome sound quality.
+                                Buy the <b style={{ color: "orangered" }}>{title} {info}</b> which offers a fabulous music experience with awesome sound quality.
                                 Enjoy perfect flexibility and mobility with these {category}, giving you a truly immersive audio experience.
                             </p>
                         </div>
@@ -90,15 +90,22 @@ const Specification = ({ brand, title, info, category, type, connectivity }) => 
                             <ul>
                                 {reviewsData.map(item => (
                                     <li key={item.id} className="review_card">
-                                        <div className="review_header">
-                                            <strong>{item.name}</strong> — ⭐ {item.rating}/5
+                                        <div className="review_avatar">{item.name.charAt(0)}</div>
+                                        <div className="review_content">
+                                            <div className="review_header">
+                                                <strong>{item.name}</strong>
+                                                <span>⭐ {item.rating}/5</span>
+                                            </div>
+                                            <p className="review_text">{item.review}</p>
                                         </div>
-                                        <p className="review_text">{item.review}</p>
                                     </li>
                                 ))}
                             </ul>
+
                         </div>
                     )}
+
+
                 </div>
             </div>
         </section>
