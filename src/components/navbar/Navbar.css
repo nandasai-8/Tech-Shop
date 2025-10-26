@@ -1,0 +1,169 @@
+/* Smooth transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar base */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    position: relative;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: inherit;
+
+}
+
+/* Themes */
+.navbar-container.light {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.navbar-container.dark {
+    background-color: #1f1f1f;
+    color: #fff;
+}
+
+/* SEARCH BOX */
+.search-box {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.search-box input {
+    display: none;
+}
+
+.search-box.active input {
+    display: block;
+    width: 500px;
+    padding: 6px 12px;
+    border: 1px solid #222;
+    border-radius: 25px;
+    margin-right: 10px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(55px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+body.dark-mode .search-box.active input {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+/* SEARCH DROPDOWN */
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+    z-index: 999;
+    scrollbar-width: none;
+}
+
+.search-dropdown::-webkit-scrollbar {
+    display: none;
+}
+
+body.dark-mode .search-dropdown {
+    background: #222;
+    color: #fff;
+    border-color: #555;
+}
+
+.search-dropdown li {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.search-dropdown li:hover {
+    background-color: #f5f5f5;
+}
+
+body.dark-mode .search-dropdown li:hover {
+    background-color: #333;
+}
+
+.search-thumb {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.search-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-price {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+body.dark-mode .search-price {
+    color: #bbb;
+}
+
+.not-found {
+    text-align: center;
+    padding: 10px;
+    color: #888;
+}
+
+
+/* Nav icons */
+.nav-icons {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-icons li {
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+}
+
+.cart-badge {
+    background-color: red;
+    color: white;
+    font-size: 11px;
+    border-radius: 50%;
+    padding: 2px 6px;
+    position: absolute;
+    top: -6px;
+    right: -8px;
+}

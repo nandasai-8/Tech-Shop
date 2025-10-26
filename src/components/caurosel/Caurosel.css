@@ -1,0 +1,80 @@
+.carousel-slide-content {
+    gap: 2rem;
+    align-items: center;
+}
+
+/* IMAGE */
+.carousel-img {
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* TEXT */
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #dc3545;
+}
+
+.tagline {
+    color: #6c757d;
+}
+
+.info {
+    color: #333;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #dc3545;
+    position: relative;
+    left: -15rem;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* DARK THEME */
+.dark-mode .title {
+    color: #ff6b6b;
+}
+
+.dark-mode .tagline,
+.dark-mode .info {
+    color: #ccc;
+}
+
+.dark-mode .price {
+    color: #ff6b6b;
+}
+
+.dark-mode .original-price {
+    color: #888;
+}
+
+.dark-mode .btn-dark {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+}
+
+.dark-mode .btn-dark:hover {
+    background-color: #357ac9;
+    border-color: #357ac9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .carousel-slide-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .carousel-img {
+        max-height: 250px;
+    }
+}

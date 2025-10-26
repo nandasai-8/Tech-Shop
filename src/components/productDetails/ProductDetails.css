@@ -1,0 +1,254 @@
+/* =========================
+   BASE LIGHT THEME
+========================= */
+
+/* Container for the whole product page */
+.product-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* LEFT: Image gallery */
+.image-gallery {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.side-images {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 2px solid black;
+}
+
+.thumbnail:hover,
+.thumbnail.selected {
+    border-color: #007bff;
+}
+
+.main-image img {
+    width: 400px;
+    max-width: 100%;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* RIGHT: Product info */
+.product-info {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.product-info h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #000;
+}
+
+.product-info h5 {
+    color: #555;
+    font-weight: 400;
+}
+
+.product-info p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.product-info .buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* Related products section */
+.related-products {
+    /* margin-top: 4rem; */
+    padding: 0 2rem;
+}
+
+.related-products h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #000;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.related-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    height: 300px;
+    background-color: #fff;
+    color: #000;
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.related-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.related-card p {
+    margin: 0.3rem 0;
+    color: #333;
+}
+
+.related-card span,
+.related-card .price {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.see-all-card {
+    border: 2px dashed #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-image img {
+        height: 300px;
+    }
+
+    .side-images {
+        flex-direction: row;
+    }
+}
+
+/* =========================
+   DARK THEME
+========================= */
+
+.dark-mode .product-container {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+.dark-mode .thumbnail {
+    border-color: #888;
+}
+
+.dark-mode .thumbnail:hover,
+.dark-mode .thumbnail.selected {
+    border-color: #4a90e2;
+}
+
+.dark-mode .product-info h2,
+.dark-mode .product-info h5,
+.dark-mode .product-info p {
+    color: #f5f5f5;
+}
+
+.dark-mode .btn-primary {
+    background-color: #4a90e2;
+    color: #fff;
+}
+
+.dark-mode .btn-primary:hover {
+    background-color: #1e60c0;
+}
+
+.dark-mode .btn-secondary {
+    background-color: #2c2c2c;
+    color: #f5f5f5;
+}
+
+.dark-mode .btn-secondary:hover {
+    background-color: #3a3a3a;
+}
+
+.dark-mode .related-products h3 {
+    color: #f5f5f5;
+}
+
+.dark-mode .related-products {
+    background-color: #121212;
+}
+
+.dark-mode body {
+    background-color: #121212;
+}
+
+.dark-mode .related-card {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    border: 1px solid #333;
+}
+
+.dark-mode .related-card:hover {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .related-card span,
+.dark-mode .related-card .price {
+    color: #4a90e2;
+}
+
+.dark-mode .see-all-card {
+    border-color: #555;
+}
