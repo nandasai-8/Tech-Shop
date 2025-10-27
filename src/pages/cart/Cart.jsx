@@ -117,10 +117,10 @@ const Cart = () => {
 
                             <button
                                 className="checkout-btn"
-                                onClick={() => navigate('/PlaceOrder')}
+                                onClick={() => navigate('/Placeorder')}
                                 disabled={totalItems === 0}
                             >
-                                {totalItems === 0 ? 'Cart is Empty' : 'Proceed to Checkout'}
+                                Proceed to Checkout
                             </button>
                         </div>
                     </>

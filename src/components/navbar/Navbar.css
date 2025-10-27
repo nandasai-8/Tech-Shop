@@ -167,3 +167,24 @@ body.dark-mode .search-price {
     top: -6px;
     right: -8px;
 }
+
+.signuptext {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #555;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 15px 0;
+}
+
+.signuptext::before,
+.signuptext::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+}

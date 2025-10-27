@@ -135,9 +135,8 @@ const Navbar = () => {
                             {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
                         </Link>
                     </li>
-                    <li data-bs-toggle="modal tooltip" data-bs-target="#authModal" data-bs-placement="top"
-                        data-bs-custom-class="custom-tooltip"
-                        data-bs-title="signin / signup">
+                    <li data-bs-toggle="modal" data-bs-target="#authModal" data-bs-placement="top"
+                    >
                         <FaRegCircleUser />
                     </li>
                 </ul>
@@ -204,7 +203,12 @@ const Navbar = () => {
                                     onClick={() => setIsSignup(!isSignup)}
                                 >
                                     {isSignup ? "Login" : "Sign Up"}
+
                                 </button>
+                                <h5 className='signuptext'> or Login With</h5>
+                                <button className='btn btn-primary '>Google</button>
+                                <button className='btn btn-secondary me-3 ms-3'>Facebook</button>
+                                <button className='btn btn-primary '>Twitter</button>
                             </p>
                         </div>
                     </div>

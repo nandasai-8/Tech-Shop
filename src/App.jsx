@@ -7,6 +7,7 @@ import Cart from './pages/cart/Cart'
 import Home from './pages/home/Home'
 import ProductDetails from './components/productDetails/ProductDetails'
 import TotalProducts from './components/totalproducts/TotalProducts'
+import PlaceOrder from './pages/PlaceHolder/PlaceOrder'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/products/:id' element={<ProductDetails />} />
         <Route path='/totalProducts' element={<TotalProducts />} />
+        <Route path='/placeorder' element={<PlaceOrder />} />
 
 
 

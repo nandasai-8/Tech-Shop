@@ -58,19 +58,19 @@ const Products = () => {
                         {/* Rating from productsData */}
                         <div className="rating">
                             {[...Array(5)].map((_, idx) =>
-                                idx < (product.rating || 4) ? (
+                                idx < (product.ratings || 4) ? (
                                     <FaStar key={idx} color="#f5b50a" />
                                 ) : (
                                     <FaRegStar key={idx} color="#ccc" />
                                 )
-                            )}
+                            )}| {product.ratings}
                         </div>
                         <h4>{product.title}</h4>
                         <p className="product-info">{product.info}</p>
                         <hr />
 
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginLeft: '50px' }}>
-                            {product.finalPrice && <h2>₹{product.finalPrice}</h2>}
+                            {product.finalPrice && <h2 style={{ color: "orangered" }}>₹{product.finalPrice}</h2>}
                             {product.originalPrice && (
                                 <p style={{ textDecoration: 'line-through', color: 'gray' }}>
                                     ₹{product.originalPrice}
