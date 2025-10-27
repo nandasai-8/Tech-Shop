@@ -66,3 +66,9 @@
 .product-card-carousel.active {
     transform: scale(1.1) translateZ(50px) !important;
 }
+
+@media (max-width: 480px) {
+    .products-carousel-container {
+        width: 120px;
+    }
+}
