@@ -240,6 +240,8 @@ body.dark-mode .search-price {
 
     .search-box.active input {
         width: 100%;
+        position: relative;
+        left: 50px;
         padding: 5px 10px;
     }
 

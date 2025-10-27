@@ -199,21 +199,6 @@
     border: 2px dashed #ccc;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .product-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .main-image img {
-        height: 300px;
-    }
-
-    .side-images {
-        flex-direction: row;
-    }
-}
 
 /* =========================
    DARK THEME
@@ -286,4 +271,181 @@
 
 .dark-mode .see-all-card {
     border-color: #555;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .image-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .side-images {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.8rem;
+        order: 2;
+    }
+
+    .main-image img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+
+    .product-info {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .product-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .offers {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .offer,
+    .discount {
+        width: 45%;
+        text-align: center;
+    }
+
+    .related-products {
+        padding: 1rem;
+        margin-top: 4rem;
+    }
+
+    .related-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .image-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Thumbnails in a horizontal row below main image */
+    .side-images {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.6rem;
+        order: 2;
+        margin-top: 0.8rem;
+    }
+
+    .thumbnail {
+        width: 70px;
+        height: 70px;
+    }
+
+    .main-image img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+    }
+
+    .product-info {
+        text-align: left;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .product-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .product-info p {
+        font-size: 0.95rem;
+    }
+
+    .offers {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .offer,
+    .discount {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .product-info .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+
+    .related-products {
+        margin-top: 3rem;
+        padding: 0.5rem;
+    }
+
+    .related-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+}
+
+/* Small phones (≤ 480px) */
+@media (max-width: 480px) {
+    .product-container {
+        padding: 0.8rem;
+        gap: 1rem;
+    }
+
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+
+    .main-image img {
+        max-width: 260px;
+        height: auto;
+    }
+
+    .product-info h2 {
+        font-size: 1.3rem;
+    }
+
+    .product-info p {
+        font-size: 0.9rem;
+    }
+
+    .offer,
+    .discount {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+
+    .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
